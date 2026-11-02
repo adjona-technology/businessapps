@@ -1,0 +1,16 @@
+# businessapps.adjona.com robots.txt
+
+User-agent: *
+Allow: /
+
+Sitemap: https://businessapps.adjona.com/sitemap.xml
+
+# Block known abusive scrapers only (as adjona.com)
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /

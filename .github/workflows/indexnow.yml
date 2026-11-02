@@ -1,0 +1,63 @@
+# Tells Bing (and other IndexNow search engines) which pages changed,
+# once GitHub Pages has finished publishing the site.
+# Only pages listed in sitemap.xml are ever submitted.
+# To submit every page in the sitemap, open the Actions tab,
+# choose "Notify Bing of changed pages" and click "Run workflow".
+
+name: Notify Bing of changed pages
+
+on:
+  workflow_run:
+    workflows: ["pages-build-deployment"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  indexnow:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-24.04
+    env:
+      KEY: 4585328f627cc8973c6d90bd89206961
+      HOST: businessapps.adjona.com
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          fetch-depth: 2
+
+      - name: Work out which pages to submit
+        id: urls
+        run: |
+          grep -o '<loc>[^<]*</loc>' sitemap.xml | sed 's/<[^>]*>//g' | sort -u > sitemap-urls.txt
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            cp sitemap-urls.txt submit.txt
+          else
+            git diff --name-only --diff-filter=AM HEAD~1 HEAD -- '*.html' \
+              | sed -e 's#index\.html$##' -e 's#^#https://businessapps.adjona.com/#' \
+              | sort -u > changed.txt
+            comm -12 changed.txt sitemap-urls.txt > submit.txt
+          fi
+          echo "Pages to submit:"; cat submit.txt
+          echo "count=$(wc -l < submit.txt)" >> "$GITHUB_OUTPUT"
+
+      - name: Submit to IndexNow
+        if: steps.urls.outputs.count != '0'
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request
+          urls = [u.strip() for u in open("submit.txt") if u.strip()]
+          body = json.dumps({
+              "host": os.environ["HOST"],
+              "key": os.environ["KEY"],
+              "keyLocation": f"https://{os.environ['HOST']}/{os.environ['KEY']}.txt",
+              "urlList": urls,
+          }).encode()
+          req = urllib.request.Request(
+              "https://api.indexnow.org/indexnow", data=body,
+              headers={"Content-Type": "application/json; charset=utf-8"})
+          with urllib.request.urlopen(req, timeout=30) as r:
+              print("IndexNow response:", r.status, "for", len(urls), "page(s)")
+          PY

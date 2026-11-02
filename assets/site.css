@@ -1,0 +1,229 @@
+/* Adjona Business Applications
+   Shared styles. Tokens, header, buttons and footer follow adjona.com.
+   Business Applications uses the logo's green bar as its accent. */
+:root{
+  --white:#ffffff;--off:#f5f5f0;--ink:#0d0d0d;
+  --ms-blue:#0F4C81;--ms-red:#D83B01;--ms-grn:#2F6B00;--ms-yel:#F2A900;
+  --accent:#2F6B00;--accent-dark:#234f00;--accent-tint:#f7fbf5;--accent-text:#2a4e1a;
+  --muted:#444;--border:rgba(13,13,13,0.1);
+  --nav-h:62px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:auto;}
+body{background:var(--white);color:var(--ink);font-family:'Epilogue',sans-serif;font-weight:400;overflow-x:hidden;}
+a{color:inherit;}
+:focus-visible{outline:2px solid var(--ms-yel);outline-offset:2px;}
+.skip-link{position:absolute;left:-9999px;top:0;z-index:300;background:var(--ink);color:#fff;padding:.75rem 1.25rem;font-weight:700;text-decoration:none;}
+.skip-link:focus{left:1rem;top:1rem;}
+
+/* HEADER (as adjona.com) */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 0 0 4rem;background:#fff;border-bottom:2px solid var(--ink);}
+.logo{display:flex;align-items:center;gap:.75rem;padding:1.1rem 0;text-decoration:none;}
+.logo-name{font-family:'Epilogue',sans-serif;font-size:1.1rem;font-weight:900;letter-spacing:-.02em;white-space:nowrap;color:var(--ink);}
+.logo-name span{color:var(--accent);}
+.nav-links{display:flex;list-style:none;}
+.nav-links a{font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:#333;text-decoration:none;padding:1.5rem 1.4rem;border-left:2px solid var(--border);display:block;transition:color .2s,background .2s;}
+.nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--accent);background:rgba(47,107,0,.05);}
+.nav-cta{font-family:'Epilogue',sans-serif;font-size:.88rem;font-weight:900;background:var(--accent);color:#fff;text-decoration:none;border-left:2px solid var(--ink);padding:1.5rem 2.2rem;cursor:pointer;transition:background .2s;display:block;white-space:nowrap;}
+.nav-cta:hover{background:var(--accent-dark);}
+.nav-hamburger{display:none;}
+.nav-cta-mobile{display:none;}
+
+.four-stripe{display:grid;grid-template-columns:repeat(4,1fr);height:6px;}
+.fs.b{background:var(--ms-blue);}.fs.r{background:var(--ms-red);}.fs.g{background:var(--ms-grn);}.fs.y{background:var(--ms-yel);}
+
+/* PAGE HERO */
+.page-hero{padding:calc(var(--nav-h) + 5rem) 4rem 4.5rem;}
+.page-hero-inner{max-width:900px;}
+.hero-tag{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:2rem;display:block;padding-left:2.25rem;position:relative;}
+.hero-tag::before{content:'';width:28px;height:2px;background:var(--accent);position:absolute;left:0;top:50%;transform:translateY(-50%);}
+.page-hero h1{font-family:'Epilogue',sans-serif;font-size:clamp(2.6rem,5vw,5.4rem);font-weight:900;line-height:.95;letter-spacing:-.04em;margin-bottom:2rem;}
+.page-hero.compact h1{font-size:clamp(2.2rem,4vw,4.2rem);}
+.serif{font-family:'Lora',serif;font-style:italic;font-weight:500;letter-spacing:-.02em;}
+.page-hero h1 .serif{color:var(--accent);}
+.hero-body p{font-size:1.05rem;line-height:1.85;color:var(--muted);max-width:640px;margin-bottom:1.25rem;}
+.hero-ctas{display:flex;gap:0;flex-wrap:wrap;margin-top:1.5rem;}
+.byline{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;}
+.byline a{color:var(--accent);text-decoration:none;}
+.byline a:hover{text-decoration:underline;}
+
+/* BUTTONS (as adjona.com) */
+.btn-solid{font-family:'Epilogue',sans-serif;font-size:.9rem;font-weight:900;background:var(--ink);color:#fff;border:2px solid var(--ink);padding:.85rem 2rem;cursor:pointer;text-decoration:none;display:inline-block;transition:background .2s,color .2s;}
+.btn-solid:hover{background:#fff;color:var(--ink);}
+.btn-outline{font-family:'Epilogue',sans-serif;font-size:.9rem;font-weight:900;background:#fff;color:var(--ink);border:2px solid var(--ink);border-left:none;padding:.85rem 2rem;cursor:pointer;text-decoration:none;display:inline-block;transition:background .2s,color .2s;}
+.btn-outline:hover{background:var(--ink);color:#fff;}
+
+/* SECTIONS */
+.sec{padding:5rem 4rem;border-top:2px solid var(--ink);}
+.sec.alt{background:var(--off);}
+.sec-inner{max-width:820px;}
+.sec-inner.wide{max-width:none;}
+.sec-label{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem;}
+.sec-title{font-family:'Epilogue',sans-serif;font-size:clamp(1.9rem,3.2vw,3rem);font-weight:900;letter-spacing:-.03em;line-height:1;margin-bottom:1.5rem;}
+.prose p{font-size:.98rem;line-height:1.85;color:var(--muted);margin-bottom:1rem;max-width:760px;}
+.prose p strong{color:var(--ink);}
+.prose ul{list-style:none;margin:1.25rem 0 1.5rem;max-width:760px;border-top:1px solid var(--border);}
+.prose li{font-size:.95rem;line-height:1.7;color:var(--muted);padding:.7rem 0 .7rem 1.75rem;border-bottom:1px solid var(--border);position:relative;}
+.prose li::before{content:'';width:10px;height:10px;background:var(--accent);position:absolute;left:0;top:1.15rem;}
+.prose a:not(.method-link):not(.route-link){color:var(--ms-blue);font-weight:700;text-decoration:none;}
+.prose a:not(.method-link):not(.route-link):hover{text-decoration:underline;}
+.meta-line{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text);background:var(--accent-tint);border-left:3px solid var(--accent);padding:.75rem 1rem;display:inline-block;margin-bottom:1rem;}
+.term{display:grid;grid-template-columns:200px 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border);max-width:760px;}
+.term:first-of-type{border-top:1px solid var(--border);}
+.term-name{font-family:'Epilogue',sans-serif;font-weight:800;font-size:.98rem;letter-spacing:-.01em;}
+.term-desc{font-size:.95rem;line-height:1.7;color:var(--muted);}
+.method-links{display:flex;flex-wrap:wrap;gap:1.25rem 2.5rem;margin-top:1.5rem;align-items:center;}
+.method-link{font-family:'Epilogue',sans-serif;font-size:.92rem;font-weight:900;color:var(--accent);text-decoration:none;border-bottom:2px solid var(--accent);padding-bottom:2px;}
+.method-link.secondary{font-weight:700;border-bottom-width:1px;}
+.method-link:hover{color:var(--accent-dark);}
+
+/* CARDS (route style, as adjona.com) */
+.routes{display:grid;grid-template-columns:repeat(2,1fr);border:2px solid var(--ink);margin-top:2rem;}
+.route{padding:2.75rem 2.5rem;border-right:2px solid var(--ink);display:flex;flex-direction:column;gap:1rem;background:#fff;transition:background .2s;}
+.route:nth-child(2n){border-right:none;}
+.route:nth-child(n+3){border-top:2px solid var(--ink);}
+.route:hover{background:var(--off);}
+.route-num{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--muted);}
+.route-icon{width:36px;height:4px;}
+.route-title{font-family:'Epilogue',sans-serif;font-size:1.25rem;font-weight:900;letter-spacing:-.02em;line-height:1.15;}
+.route-desc{font-size:.92rem;color:var(--muted);line-height:1.75;flex:1;}
+.route-link{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;padding-bottom:2px;border-bottom:1.5px solid currentColor;align-self:flex-start;margin-top:.5rem;color:var(--accent);}
+
+/* STEPS */
+.steps{list-style:none;border:2px solid var(--ink);margin-top:2rem;max-width:980px;background:#fff;}
+.step{display:grid;grid-template-columns:5rem 1fr;border-bottom:2px solid var(--ink);}
+.step:last-child{border-bottom:none;}
+.step-num{font-family:'Epilogue',sans-serif;font-size:2rem;font-weight:900;color:var(--accent);padding:2rem 0;text-align:center;border-right:2px solid var(--ink);}
+.step-body{padding:2rem 2.5rem;}
+.step-title{font-family:'Epilogue',sans-serif;font-size:1.15rem;font-weight:900;letter-spacing:-.02em;margin-bottom:.75rem;}
+.step-body p{font-size:.95rem;line-height:1.8;color:var(--muted);margin-bottom:.6rem;}
+
+/* QUESTIONS */
+.qa{max-width:820px;margin-top:1.5rem;border-top:2px solid var(--ink);}
+.qa-item{padding:1.75rem 0;border-bottom:1px solid var(--border);}
+.qa-item h3{font-family:'Epilogue',sans-serif;font-size:1.12rem;font-weight:900;letter-spacing:-.02em;margin-bottom:.75rem;}
+.qa-item p{font-size:.95rem;line-height:1.8;color:var(--muted);margin-bottom:.75rem;max-width:760px;}
+.qa-item a:not(.method-link){color:var(--ms-blue);font-weight:700;text-decoration:none;}
+.qa-item a:not(.method-link):hover{text-decoration:underline;}
+
+/* ARTICLES (as adjona.com insights) */
+.art-body{display:grid;grid-template-columns:minmax(0,1fr) 300px;border-top:2px solid var(--ink);}
+.art-content{padding:4rem;border-right:2px solid var(--ink);}
+.art-content p{font-size:.98rem;line-height:1.9;color:var(--muted);margin-bottom:1.5rem;max-width:720px;}
+.art-content h2{font-family:'Epilogue',sans-serif;font-size:1.4rem;font-weight:900;letter-spacing:-.02em;margin:2.75rem 0 .9rem;}
+.art-content h2:first-child{margin-top:0;}
+.art-content a:not(.method-link){color:var(--ms-blue);font-weight:700;text-decoration:none;}
+.art-content a:not(.method-link):hover{text-decoration:underline;}
+.art-sidebar{padding:3rem 2rem;background:var(--off);}
+.side-box{border:2px solid var(--ink);background:#fff;padding:1.5rem;margin-bottom:1.5rem;}
+.side-label{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem;}
+.side-box p{font-size:.85rem;line-height:1.7;color:var(--muted);margin-bottom:1rem;}
+.side-box a.side-cta{display:block;text-align:center;font-family:'Epilogue',sans-serif;font-size:.85rem;font-weight:900;background:var(--accent);color:#fff;text-decoration:none;padding:.75rem 1rem;border:2px solid var(--accent);}
+.side-box a.side-cta:hover{background:var(--accent-dark);}
+.side-box ul{list-style:none;}
+.side-box li{padding:.45rem 0;border-bottom:1px solid var(--border);font-size:.85rem;}
+.side-box li:last-child{border-bottom:none;}
+.side-box li a{color:var(--ink);text-decoration:none;font-weight:700;}
+.side-box li a:hover{color:var(--accent);}
+
+/* ENQUIRY FORM EMBED */
+.form-embed{border:2px solid var(--ink);background:#fff;margin:1.5rem 0;max-width:820px;}
+.form-embed iframe{display:block;width:100%;min-height:1500px;border:none;}
+.form-embed .form-fallback{padding:1.25rem 1.5rem;font-size:.92rem;line-height:1.7;color:var(--muted);}
+.form-embed .form-fallback a{color:var(--ms-blue);font-weight:700;}
+.small-print p{font-size:.85rem;line-height:1.7;color:var(--muted);max-width:760px;margin-bottom:.5rem;}
+.small-print a{color:var(--ms-blue);font-weight:700;}
+
+/* CLOSING CTA (adjona.com page-cta, green panel) */
+.page-cta{display:grid;grid-template-columns:1fr 1fr;border-top:2px solid var(--ink);}
+.cta-panel{background:var(--accent);padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center;}
+.cta-tag{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:1rem;}
+.cta-title{font-family:'Epilogue',sans-serif;font-size:clamp(2rem,3.4vw,3.3rem);font-weight:900;letter-spacing:-.04em;line-height:1;color:#fff;}
+.cta-right{background:var(--off);padding:5rem 4rem;display:flex;flex-direction:column;justify-content:center;}
+.cta-right p{font-size:.98rem;color:var(--muted);line-height:1.85;max-width:460px;margin-bottom:1rem;}
+.cta-actions{display:flex;flex-direction:column;gap:.75rem;margin-top:1rem;max-width:420px;}
+.cta-btn-solid{font-family:'Epilogue',sans-serif;font-size:.9rem;font-weight:900;background:var(--ink);color:#fff;border:2px solid var(--ink);padding:.9rem 2rem;text-decoration:none;display:block;text-align:center;transition:background .2s,color .2s;}
+.cta-btn-solid:hover{background:#fff;color:var(--ink);}
+.cta-btn-outline{font-family:'Epilogue',sans-serif;font-size:.9rem;font-weight:900;background:#fff;color:var(--ink);border:2px solid var(--ink);padding:.9rem 2rem;text-decoration:none;display:block;text-align:center;transition:background .2s,color .2s;}
+.cta-btn-outline:hover{background:var(--ink);color:#fff;}
+
+/* FOOTER (as adjona.com) */
+footer{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1.5rem 4rem 5rem;border-top:2px solid var(--ink);}
+.f-copy-wrap{display:flex;flex-direction:column;gap:.35rem;}
+.f-logo{display:flex;align-items:center;gap:.65rem;}
+.f-name{font-family:'Epilogue',sans-serif;font-size:1rem;font-weight:900;letter-spacing:-.02em;}
+.f-name span{color:var(--ms-blue);}
+.f-desc{font-size:.8rem;line-height:1.6;color:var(--muted);max-width:520px;}
+.f-copy{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.06em;line-height:1.7;color:var(--muted);max-width:620px;}
+.f-copy a{color:var(--muted);}
+.f-partner{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;margin-top:.2rem;}
+.f-partner span{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.08em;color:var(--muted);}
+.f-links{display:flex;gap:.9rem 1.75rem;list-style:none;flex-wrap:wrap;}
+.f-links a,.f-links button{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:.4rem;background:none;border:none;cursor:pointer;padding:0;}
+.f-links a:hover,.f-links button:hover{color:var(--accent);}
+.f-links img{display:block;border:0;}
+
+/* COOKIE CHOICES (as adjona.com) */
+#cookie-bar{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0d0d0d;border-top:2px solid var(--accent);padding:.85rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem 1.5rem;flex-wrap:wrap;font-family:'Epilogue',sans-serif;font-size:.82rem;line-height:1.5;color:#ddd;}
+#cookie-bar.hidden{display:none;}
+#cookie-bar a{color:#b9dd9a;text-decoration:underline;}
+#cookie-bar .cb-actions{display:flex;gap:.6rem;flex-shrink:0;}
+#cookie-bar button{font-family:'Epilogue',sans-serif;font-size:.82rem;font-weight:900;border:2px solid #fff;padding:.5rem 1.25rem;cursor:pointer;white-space:nowrap;}
+#cookie-bar-reject{background:transparent;color:#fff;}
+#cookie-bar-accept{background:#fff;color:#0d0d0d;}
+#cookie-bar button:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
+
+/* RESPONSIVE (breakpoints as adjona.com) */
+@media(min-width:1201px) and (max-width:1500px){
+  nav{padding-left:2rem;}
+  .nav-links a{padding:1.5rem .8rem;letter-spacing:.1em;}
+  .nav-cta{padding:.9rem 1.25rem;white-space:normal;max-width:14rem;line-height:1.25;align-self:stretch;display:flex;align-items:center;}
+}
+@media(max-width:1200px){
+  nav{padding:0 1.25rem 0 2rem;flex-wrap:wrap;}
+  .nav-links{display:none;width:100%;flex-direction:column;border-top:1px solid var(--border);order:2;}
+  .nav-links.nav-open{display:flex;background:#fff;}
+  .nav-links a{border-left:none;border-bottom:1px solid var(--border);padding:1rem 0;}
+  .nav-hamburger{display:block;background:none;border:none;font-size:1.4rem;cursor:pointer;padding:.5rem;color:var(--ink);margin-left:auto;order:1;}
+  .nav-cta{display:none !important;}
+  .nav-cta-mobile{display:none !important;order:3;}
+  .nav-cta-mobile.nav-open{display:block !important;width:100%;font-family:'Epilogue',sans-serif;font-size:.82rem;font-weight:900;background:var(--accent);color:#fff;text-decoration:none;text-align:center;padding:1rem 1.25rem;border-top:2px solid var(--ink);}
+  footer{flex-direction:column;align-items:flex-start;}
+}
+@media(max-width:1000px){
+  :root{--nav-h:58px;}
+  nav{padding:0 1.25rem;}
+  .logo{padding:.85rem 0;}
+  .page-hero{padding:calc(var(--nav-h) + 3rem) 1.5rem 3rem;}
+  .hero-ctas{flex-direction:column;gap:.75rem;}
+  .btn-solid,.btn-outline{display:block;text-align:center;border-left:2px solid var(--ink);}
+  .sec{padding:3rem 1.5rem;}
+  .routes{grid-template-columns:1fr;}
+  .route{border-right:none;}
+  .route:nth-child(n+2){border-top:2px solid var(--ink);}
+  .step{grid-template-columns:3.5rem 1fr;}
+  .step-num{font-size:1.5rem;padding:1.5rem 0;}
+  .step-body{padding:1.5rem;}
+  .term{grid-template-columns:1fr;gap:.35rem;}
+  .art-body{grid-template-columns:1fr;}
+  .art-content{padding:3rem 1.5rem;border-right:none;border-bottom:2px solid var(--ink);}
+  .art-sidebar{padding:2rem 1.5rem;}
+  .page-cta{grid-template-columns:1fr;}
+  .cta-panel,.cta-right{padding:3rem 1.5rem;}
+  footer{padding:1.5rem 1.5rem 6rem;}
+  #cookie-bar{padding:1rem 1.25rem;}
+}
+@media(max-width:480px){
+  .page-hero h1{font-size:2.3rem;}
+  .logo-name{font-size:.95rem;white-space:normal;}
+  #cookie-bar .cb-actions{width:100%;}
+  #cookie-bar button{flex:1;}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none !important;}}
+/* Footer layout as adjona.com: name on one line, stack below wide desktop */
+.f-name{white-space:nowrap;}
+.f-links li{display:flex;align-items:center;}
+@media(min-width:769px) and (max-width:1500px){
+  footer{flex-direction:column;align-items:flex-start;gap:1.25rem;}
+}
+.visually-hidden{position:absolute !important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
