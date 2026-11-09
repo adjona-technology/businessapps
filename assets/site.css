@@ -226,4 +226,15 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
 @media(min-width:769px) and (max-width:1500px){
   footer{flex-direction:column;align-items:flex-start;gap:1.25rem;}
 }
+/* Lists inside articles, matching the prose lists */
+.art-content ul{list-style:none;margin:0 0 1.75rem;max-width:720px;border-top:1px solid var(--border);}
+.art-content li{font-size:.95rem;line-height:1.7;color:var(--muted);padding:.6rem 0 .6rem 1.75rem;border-bottom:1px solid var(--border);position:relative;}
+.art-content li::before{content:'';width:10px;height:10px;background:var(--accent);position:absolute;left:0;top:1.05rem;}
+.art-content li a{color:var(--ms-blue);font-weight:700;text-decoration:none;}
+/* Three cards in one row on wide screens */
+@media(min-width:1001px){
+  .routes.three{grid-template-columns:repeat(3,1fr);}
+  .routes.three .route{border-right:2px solid var(--ink);}
+  .routes.three .route:nth-child(3){border-right:none;border-top:none;}
+}
 .visually-hidden{position:absolute !important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
