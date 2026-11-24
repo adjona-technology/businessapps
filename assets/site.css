@@ -236,5 +236,6 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
   .routes.three{grid-template-columns:repeat(3,1fr);}
   .routes.three .route{border-right:2px solid var(--ink);}
   .routes.three .route:nth-child(3){border-right:none;border-top:none;}
+  .routes.three .route:nth-child(3n){border-right:none;}
 }
 .visually-hidden{position:absolute !important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}

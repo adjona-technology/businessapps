@@ -3,7 +3,8 @@
 # Each folder in scheduled-releases/ on the "scheduled" branch is named
 # with its publication date (YYYY-MM-DD). Every morning this workflow
 # copies any folder whose date has arrived (UK time) into the site on
-# main, commits and pushes. GitHub Pages then rebuilds, and the
+# main, refreshes the "Latest insights" block on the home page,
+# commits and pushes. GitHub Pages then rebuilds, and the
 # "Notify Bing of changed pages" workflow submits the new pages.
 #
 # Queued articles are not on the website until their date. They are
@@ -72,6 +73,8 @@ jobs:
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
+          # Refresh the "Latest insights" block on the home page.
+          python3 .github/scripts/latest_insights.py
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
