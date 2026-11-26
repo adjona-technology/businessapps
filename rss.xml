@@ -10,7 +10,8 @@
     <language>en-gb</language>
     <atom:link href="https://businessapps.adjona.com/rss.xml" rel="self" type="application/rss+xml" />
 
-    <item>
+    <item><title>When does a shared inbox need a work queue?</title><link>https://businessapps.adjona.com/insights/shared-inbox-work-queue/</link><guid isPermaLink="true">https://businessapps.adjona.com/insights/shared-inbox-work-queue/</guid><pubDate>Thu, 26 Nov 2026 09:00:00 +0000</pubDate><description>A shared mailbox can show who has written to you. When several people must act on the same request, the harder question is who owes the next reply.</description></item>
+<item>
       <title>When does your business need Dynamics 365 instead of Excel, SharePoint or Microsoft Lists?</title>
       <link>https://businessapps.adjona.com/insights/when-to-use-dynamics-365-instead-of-excel/</link>
       <guid isPermaLink="true">https://businessapps.adjona.com/insights/when-to-use-dynamics-365-instead-of-excel/</guid>
